@@ -10,12 +10,14 @@ export default function RootLayout() {
         words={[
           "AI-Engineer",
           "UI/UX Design",
-          "Web Developer",
-          "MERN Stack",
+          "Web Develop",
           "Machine Learning",
           "Deep Learning",
-          "NLP",
+          "Data Science",
+          "Generative AI",
           "Computer Vision",
+          "MLOps",
+          "NLP",
         ]}
         spawnEveryMs={500}
         minLifeMs={2200}

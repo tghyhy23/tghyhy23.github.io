@@ -6,13 +6,14 @@ export default function WordsPopper({
   words = [
     "AI-Engineer",
     "UI/UX Design",
-    "Web Design",
+    "Web Develop",
     "Machine Learning",
     "Deep Learning",
     "Data Science",
-    "Frontend",
-    "Backend",
-    "DevOps",
+    "Generative AI",
+    "Computer Vision",
+    "MLOps",
+    "NLP",
   ],
   spawnEveryMs = 500,
   minLifeMs = 2600,
@@ -70,7 +71,8 @@ export default function WordsPopper({
         const padW = Math.floor(viewport.w * 0.06);
         const padH = Math.floor(viewport.h * 0.06);
 
-        let left = 0, top = 0;
+        let left = 0,
+          top = 0;
         let tries = 0;
         do {
           left = rand(padW, viewport.w - padW);
@@ -79,7 +81,6 @@ export default function WordsPopper({
         } while (isInsideAvoid(left, top, avoidRect) && tries < 12);
 
         const fontSize = rand(18, 32);
-        
 
         const item = {
           id,
@@ -87,7 +88,7 @@ export default function WordsPopper({
           left,
           top,
           life,
-          fontSize
+          fontSize,
         };
         return [...curr, item];
       });
