@@ -17,23 +17,9 @@ export default function WordsPopper({
   spawnEveryMs = 500,
   minLifeMs = 2600,
   maxLifeMs = 5200,
-  maxActive = 28,
-
-  /** Né vùng nội dung trung tâm (VD: ".hero .content" hoặc "#heroContent") */
+  maxActive = 3,
   avoidSelector = null,
-  avoidMargin = 24, // px, nới rộng vùng cần né một chút
-
-  /** góc nghiêng ngẫu nhiên */
-  minRotate = -40,
-  maxRotate = 40,
-
-  /** bộ gradient để random */
-  gradientSets = [
-    ["#00EEFF", "#9AE6FF"],            // cyan → light cyan
-    ["#00fff2ff", "#29FFC6"],            // lime → aqua
-    ["#FFD29D", "#FF8C9D"],            // warm peach → pink
-    ["#A18CD1", "#FBC2EB"],            // purple → pink
-  ],
+  avoidMargin = 40,
 }) {
   const [items, setItems] = useState([]);
   const [avoidRect, setAvoidRect] = useState(null);
@@ -48,7 +34,6 @@ export default function WordsPopper({
     []
   );
 
-  // đo vùng cần né (nếu có)
   useEffect(() => {
     function measure() {
       if (!avoidSelector) {
@@ -67,7 +52,7 @@ export default function WordsPopper({
     }
     measure();
     window.addEventListener("resize", measure);
-    const id = setInterval(measure, 500); // khi layout thay đổi do route outlet
+    const id = setInterval(measure, 500);
     return () => {
       window.removeEventListener("resize", measure);
       clearInterval(id);
@@ -85,9 +70,7 @@ export default function WordsPopper({
         const padW = Math.floor(viewport.w * 0.06);
         const padH = Math.floor(viewport.h * 0.06);
 
-        // tìm vị trí không nằm trong avoidRect (thử tối đa 12 lần)
-        let left = 0,
-          top = 0;
+        let left = 0, top = 0;
         let tries = 0;
         do {
           left = rand(padW, viewport.w - padW);
@@ -96,11 +79,7 @@ export default function WordsPopper({
         } while (isInsideAvoid(left, top, avoidRect) && tries < 12);
 
         const fontSize = rand(18, 32);
-        const rotate = rand(minRotate, maxRotate);
-
-        // chọn gradient ngẫu nhiên + màu glow tương ứng (lấy stop 1)
-        const gradient = gradientSets[rand(0, gradientSets.length - 1)];
-        const glow = toRGBA(gradient[0], 0.35); // nhẹ, có thể chỉnh alpha
+        
 
         const item = {
           id,
@@ -108,10 +87,7 @@ export default function WordsPopper({
           left,
           top,
           life,
-          fontSize,
-          rotate,
-          gradient,
-          glow,
+          fontSize
         };
         return [...curr, item];
       });
@@ -128,12 +104,8 @@ export default function WordsPopper({
     viewport.h,
     words,
     avoidRect,
-    gradientSets,
-    minRotate,
-    maxRotate,
   ]);
 
-  // tự gỡ item khi hết life
   useEffect(() => {
     const timeouts = items.map((item) =>
       setTimeout(() => {
@@ -154,12 +126,10 @@ export default function WordsPopper({
             top: item.top,
             fontSize: `${item.fontSize}px`,
             animationDuration: `${item.life}ms`,
-            filter: item.blur ? `blur(${item.blur}px)` : "none",
-            transform: `translate(-50%, -50%) rotate(${item.rotate}deg)`,
-            // gradient + glow
-            "--gradA": item.gradient[0],
-            "--gradB": item.gradient[1],
-            "--glow": item.glow,
+            // KHÔNG set rotate ở đây để keyframes điều khiển xoay
+            transform: `translate(-50%, -50%)`,
+            // Truyền góc xoay cho keyframes dùng
+            "--rot": `${item.rotate}deg`,
           }}
         >
           {item.text}
@@ -176,15 +146,4 @@ function rand(min, max) {
 function isInsideAvoid(x, y, rect) {
   if (!rect) return false;
   return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
-}
-
-// hex -> rgba(a)
-function toRGBA(hex, alpha = 0.35) {
-  if (!hex) return `rgba(255,255,255,${alpha})`;
-  let h = hex.replace("#", "");
-  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
-  const r = parseInt(h.substring(0, 2), 16);
-  const g = parseInt(h.substring(2, 4), 16);
-  const b = parseInt(h.substring(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
