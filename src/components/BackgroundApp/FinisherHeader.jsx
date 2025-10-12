@@ -12,11 +12,11 @@ export default function FinisherHeader() {
       if (!window.FinisherHeader) return;
       new window.FinisherHeader({
         count: 3,
-        size: { min: 1100, max: 1300, pulse: 0 },
+        size: { min: 1000, max: 1200, pulse: 0 },
         speed: { x: { min: 0.1, max: 0.8 }, y: { min: 0.1, max: 0.8 } },
         colors: {
-          background: "#000000",
-          particles: ["#001223", "#001223", "#004581"],
+          background: "#13151C",
+          particles: ["#0B1221", "#0B1221", '#0E1730'],
           // 084c6f
         },
         blending: "overlay",

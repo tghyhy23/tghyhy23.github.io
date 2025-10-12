@@ -1,4 +1,5 @@
-/* 1) Reset gọn + box-sizing toàn cục */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -76,6 +77,7 @@ select {
 .app-layer{
   position: relative;
   z-index: 1;
+  // background: radial-gradient(ellipse 80% 60% at 50% 0%, rgb(0, 22, 84), transparent 70%), #171717,
 }
 /* Navigation */
 

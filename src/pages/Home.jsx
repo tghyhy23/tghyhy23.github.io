@@ -1,5 +1,7 @@
- 
-import ShinyText from "../components/ShinyText/ShinyText";
+// #6c8bce
+import AboutSection from "../components/About/About";
+import ShinyText from "../components/ReactBitsLib/ShinyText/ShinyText";
+
 import "./Home.scss";
 // import me from "../assets/me.jpg";
 export default function Home() {
@@ -33,7 +35,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <AboutSection />
+        
+      
     </>
   );
 }
