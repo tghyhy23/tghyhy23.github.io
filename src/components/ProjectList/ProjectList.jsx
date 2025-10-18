@@ -17,6 +17,7 @@ export default function ProjectList() {
       title: "BlooMart",
       desc: "This MERN platform is a multi-category e-commerce web app built for a fast, friendly, and trustworthy shopping experience.",
       details: "#",
+      image: ""
     },
     {
       id: 4,
@@ -31,7 +32,7 @@ export default function ProjectList() {
       {projects.map((p) => (
         <article className="sc-card" key={p.id}>
           <div className="sc-card__thumb" aria-hidden>
-            hello
+            
           </div>
           <div className="sc-card__body">
             <h3 className="sc-card__title">{p.title}</h3>
