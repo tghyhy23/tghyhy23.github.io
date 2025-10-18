@@ -162,6 +162,7 @@ $bp-md: 900px; // breakpoint for stacking
 }
 
 .aa__typing-text {
+  font-size: 1.2rem;
   background: var(--aa-gradient, linear-gradient(135deg, #6a5cff, #16b1ff));
   background-clip: text;
   color: transparent;

@@ -100,8 +100,27 @@
   }
 
   &__thumb {
+    margin-bottom: 30px;
     height: 230px;
+    width: 100%;
     padding: 15px;
+    display: grid;
+    place-items: center;
+    
+    img {
+      width: 100%;
+      border-radius: 6px;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transform: scale(1.001);
+      transition: transform .4s ease, filter .4s ease;
+      will-change: transform;
+    }
+  }
+
+  &:hover &__thumb img {
+    transform: scale(1.02);
   }
 
   &__body { padding: 20px 20px 10px; }

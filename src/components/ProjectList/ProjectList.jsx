@@ -1,3 +1,5 @@
+import bloo from "../../assets/bloo.jpg";
+
 export default function ProjectList() {
   const projects = [
     {
@@ -9,7 +11,7 @@ export default function ProjectList() {
     {
       id: 2,
       title: "CryptoBot",
-      desc: "An application that performs comprehensive financial and technical analysis on any cryptocurrency using historical data from the Binance API.",
+      desc: "An AI-agent providing financial and technical cryptocurrency analysis via Binance data API.",
       details: "#",
     },
     {
@@ -17,7 +19,7 @@ export default function ProjectList() {
       title: "BlooMart",
       desc: "This MERN platform is a multi-category e-commerce web app built for a fast, friendly, and trustworthy shopping experience.",
       details: "#",
-      image: ""
+      image: bloo
     },
     {
       id: 4,
