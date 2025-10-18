@@ -32,7 +32,16 @@ export default function ProjectList() {
       {projects.map((p) => (
         <article className="sc-card" key={p.id}>
           <div className="sc-card__thumb" aria-hidden>
-            
+            {p.image ? (
+              <img
+                src={p.image}
+                alt={`${p.title} preview`}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div className="sc-card__thumb--ph" />
+            )}
           </div>
           <div className="sc-card__body">
             <h3 className="sc-card__title">{p.title}</h3>
