@@ -102,11 +102,7 @@
 
   &__thumb {
     height: 230px;
-    background:
-      radial-gradient(120% 160% at 30% 10%,
-        color-mix(in srgb, var(--aa-primary-1) 22%, transparent),
-        transparent 60%),
-      linear-gradient(0deg, rgba(255,255,255,.03), rgba(255,255,255,.03));
+    padding: 15px;
   }
 
   &__body { padding: 20px 20px 10px; }
@@ -129,7 +125,7 @@
 /* Buttons */
 .sc-btn {
   border: 1px solid var(--aa-card-border);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 8px 12px;
   font-size: 14px;
   text-decoration: none;

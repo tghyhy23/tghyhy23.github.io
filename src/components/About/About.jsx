@@ -18,7 +18,7 @@ export default function AboutSection({
     "Web Development",
   ],
   stats = [
-    { label: "Total Projects", value: 1 },
+    { label: "Total Projects", value: 4 },
     { label: "Publications", value: 1 },
     { label: "Years of Experience", value: 2 + "+" },
   ],
