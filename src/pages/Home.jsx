@@ -12,9 +12,8 @@ export default function Home() {
       <section className="hero">
         <div className="hero__inner">
           <div className="hero__eyebrow">
-            <span className="hero__dot hero__dot--outline" />
             <ShinyText
-              text="Welcome to my"
+              text="Welcome to"
               disabled={false}
               speed={5}
               className="hero__pill hero__pill--outline"

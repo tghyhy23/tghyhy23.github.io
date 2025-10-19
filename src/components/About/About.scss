@@ -111,8 +111,8 @@ $bp-md: 900px; // breakpoint for stacking
   display: grid;
   place-items: center;
   border-radius: 50%;
-  height: 350px;
-  width: 350px;
+  height: 400px;
+  width: 400px;
   position: relative;
   overflow: visible;
 
@@ -136,6 +136,7 @@ $bp-md: 900px; // breakpoint for stacking
   .aa__avatar img {
         height: 350px;
         width: 350px;
+        transform: scale(1.12);
         object-fit: cover;
         border-radius: 50%;
   }
