@@ -1,0 +1,333 @@
+.experience {
+    position: relative;
+    width: 100%;
+    padding: 80px 8% 80px;
+    box-sizing: border-box;
+    color: #fff;
+
+    // =========================
+    // HEADING
+    // =========================
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 100px;
+
+        & > span {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #6c8bce;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4.5vw, 40px);
+            margin-top: 12px;
+            line-height: 1.1;
+            letter-spacing: 0.2px;
+            background: var(--aa-gradient);
+            background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            margin-top: 10px;
+            color: var(--aa-muted);
+            display: inline-flex;
+            gap: 12px;
+            align-items: center;
+        }
+    }
+
+    // =========================
+    // TIMELINE
+    // =========================
+
+    &__timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+
+        width: 3px;
+
+        transform: translateX(-50%);
+
+        background: rgba(255, 255, 255, 0.12);
+
+        border-radius: 999px;
+        overflow: visible;
+    }
+
+    &__line-progress {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        transform-origin: top center;
+
+        background: linear-gradient(180deg, #91d5ff, #6c8bce, #5275f5);
+
+        border-radius: inherit;
+
+        box-shadow:
+            0 0 10px rgba(108, 139, 206, 0.65),
+            0 0 24px rgba(108, 139, 206, 0.35);
+    }
+
+    // =========================
+    // ITEMS
+    // =========================
+
+    &__item {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        min-height: 330px;
+        margin-bottom: 90px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--left {
+            .experience__card {
+                grid-column: 1;
+                margin-right: 55px;
+            }
+        }
+
+        &--right {
+            .experience__card {
+                grid-column: 2;
+                margin-left: 55px;
+            }
+        }
+    }
+
+    // =========================
+    // NODES
+    // =========================
+
+    &__node {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 14px;
+        height: 14px;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        background: #0b1020;
+        border: 3px solid #56627e;
+
+        z-index: 2;
+
+        transition:
+            background 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+
+        &.is-active {
+            background: #6c8bce;
+            border-color: #a6d9ff;
+
+            box-shadow:
+                0 0 0 6px rgba(108, 139, 206, 0.15),
+                0 0 18px rgba(108, 139, 206, 0.65);
+        }
+    }
+
+    // =========================
+    // CARDS
+    // =========================
+
+    &__card {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+
+        align-self: center;
+        padding: 28px 30px;
+
+        background: linear-gradient(320deg, color-mix(in srgb, var(--aa-bg-2) 75%, transparent) 0%, color-mix(in srgb, var(--aa-bg) 65%, transparent) 100%);
+
+        border: 1px solid var(--aa-card-border);
+        border-radius: 16px;
+
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+
+        transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+
+        // =========================
+        // CORNER GLOW CONFIGURATION
+        // =========================
+
+        --glow-color: rgba(107, 139, 170, 0.12);
+        --glow-x: 100%;
+        --glow-y: -15%;
+        --glow-size: 55%;
+
+        // =========================
+        // CORNER GLOW
+        // =========================
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at var(--glow-x) var(--glow-y), var(--glow-color) 0%, transparent var(--glow-size));
+
+            opacity: 0;
+            transform: scale(0.9);
+            transform-origin: top right;
+
+            transition:
+                opacity 0.45s ease,
+                transform 0.55s ease;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        // =========================
+        // CARD CONTENT
+        // =========================
+
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        // =========================
+        // HOVER EFFECT
+        // =========================
+
+        &:hover {
+            border-color: rgba(108, 139, 206, 0.6);
+
+            box-shadow:
+                0 12px 36px rgba(0, 0, 0, 0.25),
+                0 0 25px rgba(108, 139, 206, 0.12);
+
+            &::before {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        // =========================
+        // TEXT
+        // =========================
+
+        h3 {
+            margin: 12px 0 5px;
+
+            font-size: 24px;
+            font-weight: 750;
+            color: #fff;
+        }
+
+        h4 {
+            margin: 0 0 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #6c8bce;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--aa-muted);
+        }
+    }
+
+    &__period {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        color: #91d5ff;
+    }
+
+    &__technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+
+        span {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd8f5;
+            background: rgba(108, 139, 206, 0.1);
+            border: 1px solid var(--aa-card-border);
+            border-radius: 6px;
+        }
+    }
+
+    // =========================
+    // RESPONSIVE
+    // =========================
+
+    @media (max-width: 768px) {
+        padding: 90px 18px;
+
+        &__heading {
+            margin-bottom: 65px;
+        }
+
+        &__line {
+            left: 12px;
+        }
+
+        &__item {
+            display: block;
+
+            min-height: unset;
+            margin-bottom: 45px;
+
+            padding-left: 38px;
+
+            &--left,
+            &--right {
+                .experience__card {
+                    margin: 0;
+                }
+            }
+        }
+
+        &__node {
+            left: 12px;
+        }
+
+        &__card {
+            padding: 22px;
+
+            h3 {
+                font-size: 20px;
+            }
+        }
+    }
+}

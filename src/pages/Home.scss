@@ -51,6 +51,7 @@
 }
 
 .hero__pill {
+  font-family: "Playfair Display", serif;
   display: inline-flex;
   align-items: center;
   letter-spacing: 2rem;   
@@ -58,7 +59,7 @@
   padding: 6px 18px;
   border-radius: 999px;
   font-weight: 500;
-  font-family: "Playfair Display", serif;
+  
   font-size: 24px;
   color: rgba(231, 231, 231, 0.530);
 }

@@ -7,15 +7,14 @@ const CV_URL = `${import.meta.env.BASE_URL}HyTruong_CV.pdf`;
 export default function AboutSection({
   name = "Truong Gia Hy",
   roleLine = "Transforming ideas into digital experiences",
-  bio = "I’m studying at RMIT University in Vietnam. I’m passionate about Generative AI, Computer Vision, and Web Development, and I’m on the path to becoming an MLOps engineer.",
+  bio = "I’m studying at RMIT University in Vietnam. I’m passionate about Web, App, Software application development, and I’m on the path to becoming a Software Engineer.",
   interest = [
-    "MLOps",
+    "Software Engineer",
+    "Web Developer",
+    "Mobile Android Developer",
     "UI/UX Design",
-    "Machine Learning",
-    "Deep Learning",
-    "Generative AI",
-    "Computer Vision",
-    "Web Development",
+    "Frontend Developer",
+    "Backend Developer",
   ],
   stats = [
     { label: "Total Projects", value: 4 },
@@ -170,10 +169,10 @@ export default function AboutSection({
                     {i === 0 && (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        height="20"
+                        height="22"
                         viewBox="0 -960 960 960"
-                        width="20"
-                        fill="#05060f"
+                        width="22"
+                        fill="#bec8e8"
                       >
                         <path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z" />
                       </svg>
@@ -181,10 +180,10 @@ export default function AboutSection({
                     {i === 1 && (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        height="20px"
+                        height="22px"
                         viewBox="0 -960 960 960"
-                        width="20px"
-                        fill="#05060f"
+                        width="22px"
+                        fill="#bec8e8"
                       >
                         <path d="M324-96q-54.69 0-93.34-38.66Q192-173.31 192-228v-504q0-54.69 38.66-93.34Q269.31-864 324-864h444v575q-25 0-42.5 17.91t-17.5 43.5q0 25.59 17.5 43.09Q743-167 768-167v71H324Zm-60-250q14-7 28.5-10.5T324-360h12v-432h-12q-25 0-42.5 17.5T264-732v386Zm144-14h288v-432H408v432Zm-144 14v-446 446Zm60 178h326q-7-14-10.5-28t-3.5-31.27q0-16.25 4-31.49Q644-274 651-288H324q-26 0-43 17.5T264-228q0 26 17 43t43 17Z" />
                       </svg>
@@ -192,22 +191,22 @@ export default function AboutSection({
                     {i === 2 && (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        height="20"
+                        height="22"
                         viewBox="0 -960 960 960"
-                        width="20"
-                        fill="#05060f"
+                        width="22"
+                        fill="#bec8e8"
                       >
                         <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
                       </svg>
                     )}
                   </div>
-                  <div>
+                  <div className="aa__content">
                     <div className="aa__metric">{String(s.value)}</div>
                     <div className="aa__label">{s.label}</div>
                   </div>
                 </div>
                 <div className="aa__cardRight" aria-hidden>
-                  <svg viewBox="0 0 24 24" width="18" height="18">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
                     <path
                       d="M9 6l6 6-6 6"
                       fill="none"

@@ -1,0 +1,619 @@
+.contact {
+    position: relative;
+    width: 100%;
+    padding: 120px 8% 50px;
+    box-sizing: border-box;
+    color: var(--aa-text);
+
+    // =========================
+    // CONTACT METHOD IMAGE
+    // =========================
+
+    &__method-img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    // =========================
+    // CONTACT METHOD ARROW
+    // =========================
+
+    &__method-arrow {
+        filter: brightness(0) invert(1);
+        opacity: 0.6;
+        display: block;
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    // =========================
+    // HEADING
+    // =========================
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 70px;
+
+        h2 {
+            font-size: clamp(26px, 3.4vw, 40px);
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            line-height: 1.1;
+
+            background: var(--aa-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 8px;
+
+            color: var(--aa-muted);
+            font-size: clamp(14px, 1.6vw, 16px);
+        }
+    }
+
+    &__eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #6c8bce;
+    }
+
+    // =========================
+    // GRID
+    // =========================
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 24px;
+
+        max-width: 1200px;
+        margin: 0 auto;
+
+        align-items: stretch;
+    }
+
+    // =========================
+    // MAIN CARD + CORNER GLOW
+    // =========================
+
+    &__card {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding: 32px;
+        background: linear-gradient(320deg, color-mix(in srgb, var(--aa-bg-2) 75%, transparent) 0%, color-mix(in srgb, var(--aa-bg) 65%, transparent) 100%);
+        border: 1px solid var(--aa-card-border);
+        border-radius: 12px;
+
+        // =========================
+        // CORNER GLOW CONFIGURATION
+        // =========================
+
+        --glow-color: rgba(107, 139, 170, 0.18);
+        --glow-x: 100%;
+        --glow-y: -15%;
+        --glow-size: 85%;
+
+        transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+
+        // =========================
+        // CORNER GLOW
+        // =========================
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            border-radius: inherit;
+
+            background: radial-gradient(circle at var(--glow-x) var(--glow-y), var(--glow-color) 0%, transparent var(--glow-size));
+
+            opacity: 0;
+            transform: scale(0.9);
+            transform-origin: top right;
+
+            transition:
+                opacity 0.45s ease,
+                transform 0.55s ease;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        // =========================
+        // MAIN CARD HOVER
+        // =========================
+
+        // &:hover {
+        //     border-color: rgba(108, 139, 206, 0.5);
+
+        //     box-shadow:
+        //         0 12px 36px rgba(0, 0, 0, 0.25),
+        //         0 0 25px rgba(108, 139, 206, 0.12);
+
+        //     &::before {
+        //         opacity: 1;
+        //         transform: scale(1);
+        //     }
+        // }
+    }
+
+    // =========================
+    // LEFT CARD
+    // =========================
+
+    &__card--info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // =========================
+    // PROFILE
+    // =========================
+
+    &__profile {
+        h3 {
+            margin: 12px 0 8px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--aa-muted);
+        }
+    }
+
+    // =========================
+    // AVAILABILITY
+    // =========================
+
+    &__availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 8px 12px;
+
+        font-size: 10px;
+        font-weight: 700;
+
+        color: #86efac;
+        background: rgba(34, 197, 94, 0.08);
+
+        border: 1px solid rgba(34, 197, 94, 0.2);
+        border-radius: 999px;
+    }
+
+    &__availability-dot {
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+        background: #4ade80;
+
+        box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+    }
+
+    // =========================
+    // CONTACT METHODS
+    // =========================
+
+    &__methods {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        margin-top: 28px;
+    }
+
+    // =========================
+    // CONTACT METHOD CARD
+    // =========================
+
+    &__method {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        width: 100%;
+        padding: 14px 16px;
+        box-sizing: border-box;
+
+        background: rgba(255, 255, 255, 0.025);
+
+        border: 1px solid var(--aa-card-border);
+        border-radius: 12px;
+
+        color: var(--aa-text);
+        text-decoration: none;
+
+        cursor: pointer;
+
+        // =========================
+        // CORNER GLOW CONFIGURATION
+        // =========================
+
+        --glow-color: rgba(107, 139, 170, 0.18);
+        --glow-x: 100%;
+        --glow-y: -15%;
+        --glow-size: 85%;
+
+        transition:
+            background 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.3s ease;
+
+        // =========================
+        // CORNER GLOW
+        // =========================
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            border-radius: inherit;
+
+            background: radial-gradient(circle at var(--glow-x) var(--glow-y), var(--glow-color) 0%, transparent var(--glow-size));
+
+            opacity: 0;
+            transform: scale(0.9);
+            transform-origin: top right;
+
+            transition:
+                opacity 0.45s ease,
+                transform 0.55s ease;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        // =========================
+        // HOVER
+        // =========================
+
+        &:hover {
+            background: rgba(108, 139, 206, 0.06);
+
+            border-color: rgba(108, 139, 206, 0.5);
+
+            box-shadow: 0 0 20px rgba(108, 139, 206, 0.1);
+
+            transform: translateY(-2px);
+
+            &::before {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .contact__method-icon {
+                color: #91d5ff;
+                border-color: rgba(108, 139, 206, 0.5);
+            }
+
+            .contact__method-arrow {
+                color: #91d5ff;
+                transform: translate(2px, -2px);
+            }
+        }
+    }
+
+    // =========================
+    // METHOD ICON
+    // =========================
+
+    &__method-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+
+        background: rgba(255, 255, 255, 0.035);
+
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+
+        color: #91d5ff;
+
+        transition:
+            color 0.3s ease,
+            border-color 0.3s ease;
+
+        i {
+            font-size: 20px;
+            line-height: 1;
+        }
+    }
+
+    // =========================
+    // METHOD INFORMATION
+    // =========================
+
+    &__method-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__method-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #6c8bce;
+    }
+
+    &__method-value {
+        font-size: 14px;
+        font-weight: 600;
+
+        color: #e5edff;
+
+        overflow-wrap: anywhere;
+    }
+
+    // =========================
+    // METHOD ARROW
+    // =========================
+
+    &__method-arrow {
+        flex-shrink: 0;
+
+        font-size: 18px;
+        line-height: 1;
+
+        color: #71809f;
+
+        transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    // =========================
+    // RIGHT CARD
+    // =========================
+
+    &__form-heading {
+        margin-bottom: 28px;
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: 750;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--aa-muted);
+        }
+    }
+
+    // =========================
+    // FORM FIELDS
+    // =========================
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--aa-text);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            outline: none;
+            color: #fff;
+            font: inherit;
+            font-size: 14sdaspx;
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+
+            &::placeholder {
+                color: #71809f;
+            }
+
+            &:focus {
+                border-color: #6c8bce;
+
+                box-shadow: 0 0 0 3px rgba(108, 139, 206, 0.12);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+    }
+
+    // =========================
+    // SUBMIT BUTTON
+    // =========================
+
+    &__submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        // =========================
+        // FULL WIDTH
+        // =========================
+
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        background: var(--aa-gradient);
+        color: #101010;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(80, 112, 255, 0.28);
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+
+        // =========================
+        // SVG / IMG ICON
+        // =========================
+
+        &-icon {
+            width: 18px;
+            height: 18px;
+
+            display: block;
+            flex-shrink: 0;
+
+            object-fit: contain;
+
+            transition: transform 0.25s ease;
+        }
+
+        // =========================
+        // HOVER
+        // =========================
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 25px rgba(82, 117, 245, 0.35);
+        }
+
+        // =========================
+        // DISABLED
+        // =========================
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    // =========================
+    // RESPONSIVE
+    // =========================
+
+    @media (max-width: 768px) {
+        padding: 90px 18px;
+
+        &__heading {
+            margin-bottom: 48px;
+
+            p {
+                flex-wrap: wrap;
+            }
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__card {
+            padding: 24px;
+        }
+
+        &__profile h3 {
+            font-size: 24px;
+        }
+
+        &__methods {
+            gap: 10px;
+        }
+
+        &__method {
+            padding: 12px 14px;
+            gap: 12px;
+        }
+
+        &__method-icon {
+            width: 38px;
+            height: 38px;
+
+            i {
+                font-size: 18px;
+            }
+        }
+
+        &__method-value {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__card {
+            padding: 20px;
+        }
+
+        &__method {
+            padding: 12px;
+        }
+
+        &__method-label {
+            font-size: 9px;
+        }
+
+        &__method-value {
+            font-size: 12px;
+        }
+
+        &__form-heading h3 {
+            font-size: 21px;
+        }
+    }
+}
