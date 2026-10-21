@@ -56,7 +56,7 @@ const projects = {
         image: bloo,
 
         demo: null,
-        github: null,
+        github: "https://github.com/PhapLu/Fullstack-Project",
     },
 
     wander: {
@@ -71,7 +71,7 @@ const projects = {
         image: null,
 
         demo: null,
-        github: null,
+        github: "https://github.com/RMIT-Vietnam-Teaching/group-project-cosc3060-cosc3061-2024b-4-0-gpa",
     },
 };
 
@@ -143,11 +143,17 @@ export default function ProjectDetail() {
                     <h1 className="project-detail__title">
                         {project.title}
 
-                        <div className="project-detail__repository">
-                            <img src={githubIcon} alt="" aria-hidden="true" />
-
-                            <span>Private Repository</span>
-                        </div>
+                        {project.github ? (
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-detail__repository" aria-label={`View ${project.title} GitHub repository`}>
+                                <img src={githubIcon} alt="" aria-hidden="true" />
+                                <span>GitHub Repository</span>
+                            </a>
+                        ) : (
+                            <div className="project-detail__repository">
+                                <img src={githubIcon} alt="" aria-hidden="true" />
+                                <span>Private Repository</span>
+                            </div>
+                        )}
                     </h1>
 
                     <div className="project-detail__divider" />
