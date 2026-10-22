@@ -30,14 +30,11 @@ export default function Contact() {
         setSubmitStatus(null);
 
         try {
-            const response = await fetch(
-                `https://formsubmit.co/ajax/${CONTACT_EMAIL}`,
-                {
-                    method: "POST",
-                    body: formData,
-                    headers: { Accept: "application/json" },
-                }
-            );
+            const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
 
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);
@@ -61,31 +58,23 @@ export default function Contact() {
     return (
         <section className="contact">
             {/* CONTACT HEADING */}
-            <motion.div
-                className="contact__heading"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-            >
+            <motion.div className="contact__heading" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                 <h2>Let's Connect</h2>
                 <p>
-                    <span className="aa__sparkle" aria-hidden="true">✦</span>
+                    <span className="aa__sparkle" aria-hidden="true">
+                        ✦
+                    </span>
                     Have a project in mind or just want to say hello? Feel free to reach out.
-                    <span className="aa__sparkle" aria-hidden="true">✦</span>
+                    <span className="aa__sparkle" aria-hidden="true">
+                        ✦
+                    </span>
                 </p>
             </motion.div>
 
             {/* CONTACT GRID */}
             <div className="contact__grid">
                 {/* LEFT CARD - PERSONAL INFO */}
-                <motion.div
-                    className="contact__card contact__card--info"
-                    initial={{ opacity: 0, x: -35 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
+                <motion.div className="contact__card contact__card--info" initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                     <div className="contact__profile">
                         <span className="contact__availability">
                             <span className="contact__availability-dot" />
@@ -97,12 +86,7 @@ export default function Contact() {
 
                     <div className="contact__methods">
                         {/* EMAIL - OPEN GMAIL COMPOSE */}
-                        <a
-                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="contact__method"
-                        >
+                        <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`} target="_blank" rel="noopener noreferrer" className="contact__method">
                             <div className="contact__method-icon">
                                 <img src={gmail} alt="" className="contact__method-img" aria-hidden="true" />
                             </div>
@@ -140,13 +124,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* RIGHT CARD - MESSAGE FORM */}
-                <motion.div
-                    className="contact__card contact__card--form"
-                    initial={{ opacity: 0, x: 35 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
+                <motion.div className="contact__card contact__card--form" initial={{ opacity: 0, x: 35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                     <div className="contact__form-heading">
                         <h3>Send Me a Message</h3>
                         <p>Fill out the form below and I'll get back to you as soon as possible.</p>
@@ -188,12 +166,22 @@ export default function Contact() {
 
                         {submitStatus === "success" && (
                             <p className="contact__success" role="status">
-                                ✓ Your message has been submitted successfully!
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#86efac">
+                                        <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+                                    </svg>
+                                </span>
+                                Your message has been submitted successfully !
                             </p>
                         )}
                         {submitStatus === "error" && (
                             <p className="contact__error" role="alert">
-                                ✕ Unable to send your message. Please try again.
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fca5a5">
+                                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                    </svg>
+                                </span>
+                                Unable to send your message. Please try again.
                             </p>
                         )}
                     </form>

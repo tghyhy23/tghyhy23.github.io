@@ -22,7 +22,16 @@ export default function AboutSection({
     { label: "Years of Experience", value: 2 + "+" },
   ],
   onDownloadCv = () => window.open(CV_URL, "_blank", "noopener"),
-  onViewProjects = () => (window.location.href = "/projects"),
+  onViewProjects = () => {
+  const projectsSection = document.getElementById("projects");
+
+  if (projectsSection) {
+    projectsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+},
 }) {
   // ------- Typing effect -------
   const [wordIndex, setWordIndex] = useState(0);

@@ -619,10 +619,13 @@
 
     &__success,
     &__error {
+        display: flex;
+        gap: 8px;
+        align-items: center;
         margin-top: 16px;
         padding: 12px 16px;
-        border-radius: 10px;
-        font-size: 13px;
+        border-radius: 12px;
+        font-size: 12px;
         font-weight: 500;
         line-height: 1.6;
     }
@@ -635,7 +638,7 @@
 
     &__error {
         color: var(--error);
-        background: var(--error-bgr);
+        background: var(--error-bg);
         border: 1px solid var(--error-border);
     }
 }
