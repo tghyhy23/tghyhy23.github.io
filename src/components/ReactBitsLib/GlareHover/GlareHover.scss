@@ -51,3 +51,15 @@
     100% 100%,
     0 0;
 }
+
+.glare-hover {
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: var(--gh-height, 0px);
+  overflow-wrap: anywhere;
+}
+.glare-hover::before { pointer-events: none; }
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .glare-hover::before { display: none; }
+}

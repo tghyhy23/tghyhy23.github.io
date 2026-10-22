@@ -551,9 +551,9 @@
         &__heading {
             margin-bottom: 48px;
 
-            p {
-                flex-wrap: wrap;
-            }
+            // p {
+            //     flex-wrap: wrap;
+            // }
         }
 
         &__grid {
@@ -640,5 +640,27 @@
         color: var(--error);
         background: var(--error-bg);
         border: 1px solid var(--error-border);
+    }
+}
+
+.contact {
+    padding-inline: var(--page-gutter);
+    &__grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+    &__card, &__field { min-width: 0; }
+    &__field input, &__field textarea { min-width: 0; font-size: 16px; }
+    &__submit { min-height: 48px; }
+    &__availability-dot { flex-shrink: 0; }
+    @media (max-width: 1024px) {
+        &__grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 600px) {
+        padding-block: 56px 40px;
+        &__heading { margin-bottom: 28px; }
+        &__card { padding: 20px 16px; }
+        &__method { gap: 10px; padding: 12px 10px; }
+        &__method-value { font-size: 14px; }
+        &__method-label { font-size: 11px; letter-spacing: 1px; }
+        &__availability { font-size: 12px; }
+        &__field input, &__field textarea { padding: 12px; }
     }
 }

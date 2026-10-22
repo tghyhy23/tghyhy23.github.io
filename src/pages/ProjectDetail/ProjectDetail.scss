@@ -829,3 +829,25 @@
         }
     }
 }
+
+.project-detail {
+    padding-inline: var(--page-gutter);
+    &__container { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 70px); }
+    &__back { min-height: 44px; }
+    &__repository { max-width: 100%; white-space: normal; min-height: 44px; }
+    &__repository img { flex-shrink: 0; }
+    &__tech { max-width: 100%; }
+    &__preview-placeholder { padding: 16px; text-align: center; }
+    @media (max-width: 1024px) {
+        &__container { grid-template-columns: minmax(0, 1fr); }
+        &__right { padding-top: 0; }
+    }
+    @media (max-width: 600px) {
+        padding-block: 100px 48px;
+        &__title { font-size: clamp(26px, 7vw, 36px); letter-spacing: -0.02em; }
+        &__back { margin-bottom: 20px; }
+        &__features { padding: 20px 16px; }
+        &__preview { aspect-ratio: 4 / 3; }
+        &__stat { min-width: 0; gap: 10px; }
+    }
+}

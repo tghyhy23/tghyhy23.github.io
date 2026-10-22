@@ -23,3 +23,11 @@
 .shiny-text.disabled {
   animation: none;
 }
+
+.shiny-text {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shiny-text { animation: none; }
+}

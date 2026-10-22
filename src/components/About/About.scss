@@ -58,7 +58,8 @@ $bp-md: 900px; // breakpoint for stacking
         justify-content: space-between;
 
         @media (max-width: $bp-md) {
-            grid-template-columns: 1fr;
+            flex-direction: column;
+            gap: 36px;
         }
     }
 
@@ -200,7 +201,8 @@ $bp-md: 900px; // breakpoint for stacking
     }
     @media (max-width: $bp-md) {
         .aa__stats {
-            grid-template-columns: 1fr;
+            flex-direction: column;
+            gap: 12px;
         }
     }
 
@@ -287,8 +289,10 @@ $bp-md: 900px; // breakpoint for stacking
         display: grid;
         place-items: center;
         border-radius: 50%;
-        height: 400px;
-        width: 400px;
+        width: min(30vw, 320px);
+        height: auto;
+        aspect-ratio: 1;
+        flex-shrink: 0;
         position: relative;
         overflow: visible;
 
@@ -310,9 +314,10 @@ $bp-md: 900px; // breakpoint for stacking
         z-index: -1;
     }
     .aa__avatar img {
-        height: 350px;
-        width: 350px;
-        transform: scale(1.12);
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         border-radius: 50%;
     }
@@ -371,5 +376,28 @@ $bp-md: 900px; // breakpoint for stacking
 @media (prefers-reduced-motion: reduce) {
     .aa__caret {
         animation: none;
+    }
+}
+
+.about-aurora {
+    padding-inline: var(--page-gutter);
+    .aa__inner { max-width: 1400px; margin-inline: auto; }
+    .aa__body { gap: clamp(24px, 4vw, 64px); }
+    .aa__left, .aa__content { min-width: 0; }
+    .aa__left { flex: 1; }
+    .aa__role { max-width: 100%; text-wrap: balance; }
+    .aa__chip { flex-shrink: 0; }
+    .aa__btn { min-height: 44px; justify-content: center; }
+    .aa__stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 900px) {
+        .aa__avatar { width: min(64vw, 260px); }
+    }
+    @media (max-width: 600px) {
+        padding-block: 40px 56px;
+        .aa__stats { grid-template-columns: minmax(0, 1fr); }
+        .aa__role { gap: 6px; font-size: 14px; }
+        .aa__name { letter-spacing: 0.04em; }
+        .aa__btn { flex: 1 1 180px; }
+        .aa__card { padding: 16px; }
     }
 }

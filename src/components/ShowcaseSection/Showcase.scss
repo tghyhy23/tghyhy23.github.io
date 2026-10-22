@@ -366,3 +366,26 @@
         color: var(--aa-text);
     }
 }
+
+.showcase {
+    padding-inline: var(--page-gutter);
+    > * { max-width: 1400px; margin-inline: auto; }
+    .showcase__sub { text-wrap: balance; }
+}
+.sc-tabs { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sc-tab, .sc-btn { min-height: 44px; }
+.sc-tab { min-width: 0; }
+.sc-card__thumb { height: auto; aspect-ratio: 4 / 3; padding: clamp(12px, 2vw, 20px); }
+.sc-grid--tech { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.tech-chip { min-width: 0; padding: 16px 8px; text-align: center; }
+@media (max-width: 1024px) {
+    .sc-grid--tech { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .showcase { padding-block: 56px; }
+    .showcase .showcase__head { margin-bottom: 28px; }
+    .sc-tabs { width: 100%; padding: 6px; gap: 4px; margin-bottom: 24px; }
+    .sc-tab { padding: 10px 4px; font-size: 13px; }
+    .sc-grid--tech { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sc-card__actions { flex-wrap: wrap; }
+}

@@ -331,3 +331,24 @@
         }
     }
 }
+
+.experience {
+    padding-inline: var(--page-gutter);
+    &__card { min-width: 0; }
+    &__technologies span { max-width: 100%; }
+    @media (max-width: 1024px) {
+        &__heading { margin-bottom: 48px; }
+        &__line, &__node { left: 12px; }
+        &__item { display: block; min-height: 0; padding-left: 38px; margin-bottom: 32px; }
+        &__item--left .experience__card, &__item--right .experience__card { margin: 0; }
+    }
+    @media (max-width: 600px) {
+        padding-block: 56px;
+        &__heading p { font-size: 14px; gap: 6px; text-wrap: balance; }
+        &__item { padding-left: 30px; }
+        &__card { padding: 20px 16px; }
+        &__card h3 { font-size: 20px; }
+        &__technologies { gap: 6px; }
+        &__technologies span { padding: 6px 8px; }
+    }
+}

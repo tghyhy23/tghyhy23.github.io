@@ -81,3 +81,12 @@
         transition: none;
     }
 }
+
+.splash-screen {
+    height: 100%;
+    padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+    &__content { width: min(100%, 320px); }
+    &__logo { font-size: clamp(24px, 6vw, 32px); }
+    &__subtitle { font-size: 11px; letter-spacing: clamp(1px, 0.6vw, 3px); }
+    &__progress { max-width: 100%; }
+}

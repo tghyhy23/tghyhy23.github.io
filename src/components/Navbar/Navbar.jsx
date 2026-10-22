@@ -21,6 +21,38 @@ const offsets = {
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("home");
+    const [menuOpen, setMenuOpen] = useState(false);
+    const navRef = useRef(null);
+    const toggleRef = useRef(null);
+
+    useEffect(() => {
+        if (!menuOpen) return;
+
+        const closeOutside = (event) => {
+            if (!navRef.current?.contains(event.target)) setMenuOpen(false);
+        };
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setMenuOpen(false);
+                toggleRef.current?.focus();
+            }
+        };
+        const desktop = window.matchMedia("(min-width: 769px)");
+        const closeOnDesktop = () => {
+            if (desktop.matches) setMenuOpen(false);
+        };
+
+        document.addEventListener("pointerdown", closeOutside);
+        document.addEventListener("focusin", closeOutside);
+        document.addEventListener("keydown", handleKeyDown);
+        desktop.addEventListener("change", closeOnDesktop);
+        return () => {
+            document.removeEventListener("pointerdown", closeOutside);
+            document.removeEventListener("focusin", closeOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+            desktop.removeEventListener("change", closeOnDesktop);
+        };
+    }, [menuOpen]);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -72,6 +104,8 @@ export default function Navbar() {
     // =========================
 
     const handleNavigate = (target) => {
+        if (menuOpen) toggleRef.current?.focus();
+        setMenuOpen(false);
         setActiveSection(target);
 
         if (location.pathname !== "/") {
@@ -186,6 +220,7 @@ export default function Navbar() {
     return (
         <header className="navbar">
             <nav
+                ref={navRef}
                 className="navbar__container"
                 aria-label="Main navigation"
             >
@@ -197,9 +232,26 @@ export default function Navbar() {
                     tghyhy
                 </button>
 
-                <div className="navbar__links">
+                <button
+                    ref={toggleRef}
+                    type="button"
+                    className="navbar__toggle"
+                    aria-expanded={menuOpen}
+                    aria-controls="navbar-links"
+                    aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    <span>Menu</span>
+                    {/* Replace this CSS icon with your image when ready. */}
+                    <span className="navbar__toggle-icon" aria-hidden="true">
+                        <span /><span /><span />
+                    </span>
+                </button>
+
+                <div id="navbar-links" className={`navbar__links ${menuOpen ? "is-open" : ""}`}>
                     {navItems.map(({ label, target }) => (
                         <button
+                            aria-current={location.pathname === "/" && activeSection === target ? "location" : undefined}
                             key={target}
                             type="button"
                             onClick={() => handleNavigate(target)}

@@ -90,4 +90,25 @@ select {
 .hero__sub { color: var(--muted); margin-top: 8px; }
 .hero__cta { margin-top: 18px; display: inline-block; padding: 10px 18px; border-radius: 999px; background: var(--primary); color: #001217; font-weight: 700; }
 
-
+:root {
+  --page-gutter: clamp(16px, 5vw, 96px);
+}
+html { scroll-padding-top: 90px; }
+body { min-width: 0; background-color: #13151c; }
+#root, .app-layer, main { min-width: 0; width: 100%; }
+main { overflow-x: clip; }
+h1, h2, h3, p, li, a, button { overflow-wrap: anywhere; }
+button, a, input, textarea { touch-action: manipulation; }
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.finisher-header { height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html, body { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

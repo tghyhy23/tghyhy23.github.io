@@ -254,3 +254,29 @@
   font-size: clamp(14px, 1.6vw, 18px);
   line-height: 1.8;
 }
+
+.hero {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 100px var(--page-gutter) 48px;
+}
+.hero__inner { width: 100%; max-width: 1400px; inset: auto; }
+.hero__inner .content { min-width: 0; width: 100%; }
+.hero__title { font-size: clamp(36px, 8.5vw, 140px); line-height: 1.12; }
+.hero__pill {
+  max-width: 100%;
+  font-size: clamp(14px, 2vw, 24px);
+  letter-spacing: clamp(2px, 1.8vw, 24px);
+  word-spacing: clamp(2px, 1vw, 16px);
+  padding-inline: 0;
+}
+@media (max-width: 600px) {
+  .hero__eyebrow, .hero__under { justify-content: center; }
+  .bio { padding: 40px var(--page-gutter); gap: 24px; }
+  .bio__wrapper, .cart__wrapper { width: 100%; }
+  .cart__wrapper { height: auto; flex-direction: column; gap: 24px; }
+  .bio__inner { height: auto; }
+  .bio__card { padding: 24px; }
+  .hero__chip--left, .hero__chip--right { max-width: 90%; }
+}
