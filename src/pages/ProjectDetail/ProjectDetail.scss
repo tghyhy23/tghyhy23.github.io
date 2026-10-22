@@ -329,22 +329,41 @@
 
         h3 {
             display: flex;
-
             align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
 
-            gap: 10px;
+    &__tech-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-            margin-bottom: 16px;
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
 
-            font-size: 15px;
+        &-mask {
+            display: block;
 
-            font-weight: 700;
+            width: 22px;
+            height: 22px;
 
-            span {
-                color: #91d5ff;
+            background-color: var(--aa-muted);
 
-                font-size: 18px;
-            }
+            -webkit-mask-image: url("../../assets/code.png");
+            mask-image: url("../../assets/code.png");
+
+            -webkit-mask-size: contain;
+            mask-size: contain;
+
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-position: center;
+            mask-position: center;
         }
     }
 
@@ -490,20 +509,12 @@
 
     &__features {
         position: relative;
-
         isolation: isolate;
-
         overflow: hidden;
-
         padding: 28px 30px;
-
         border: 1px solid var(--aa-card-border);
-
-        border-radius: 16px;
-
+        border-radius: 12px;
         background: linear-gradient(320deg, color-mix(in srgb, var(--aa-bg-2) 75%, transparent) 0%, color-mix(in srgb, var(--aa-bg) 65%, transparent) 100%);
-
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
 
         --glow-color: rgba(107, 139, 170, 0.18);
         --glow-x: 100%;
@@ -562,21 +573,28 @@
 
         h3 {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             margin: 0 0 20px;
-
-            font-size: 17px;
-
+            font-size: 18px;
             font-weight: 700;
 
             span {
-                color: #91d5ff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                background-color: var(--aa-muted);
+                mask-image: url("../../assets/bling.png");
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center;
 
-                font-size: 22px;
+                img {
+                    display: none;
+                }
             }
         }
 
@@ -708,6 +726,8 @@
         color: var(--aa-muted);
         font-size: 14px;
         font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
         white-space: nowrap;
 
         img {
@@ -787,11 +807,7 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: radial-gradient(
-                circle at var(--glow-x) var(--glow-y),
-                var(--glow-color) 0%,
-                transparent var(--glow-size)
-            );
+            background: radial-gradient(circle at var(--glow-x) var(--glow-y), var(--glow-color) 0%, transparent var(--glow-size));
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;

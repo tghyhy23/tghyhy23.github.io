@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import code from "../../assets/code.png";
 import star from "../../assets/star.png";
+import bling from "../../assets/bling.png";
 import githubIcon from "../../assets/github.png";
 
 import bloo from "../../assets/bloo.jpg";
@@ -198,7 +199,9 @@ export default function ProjectDetail() {
 
                     <div className="project-detail__technologies">
                         <h3>
-                            <span>{"</>"}</span>
+                            <div className="project-detail__tech-icon">
+                                <span className="project-detail__tech-icon-mask" />
+                            </div>
                             Technologies Used
                         </h3>
 
@@ -249,7 +252,9 @@ export default function ProjectDetail() {
 
                     <div className="project-detail__features">
                         <h3>
-                            <span>✧</span>
+                            <span>
+                                <img src={bling} alt="" />
+                            </span>
                             Key Features
                         </h3>
 
