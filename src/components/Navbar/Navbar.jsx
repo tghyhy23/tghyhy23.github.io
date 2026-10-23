@@ -241,7 +241,7 @@ export default function Navbar() {
                     aria-label={menuOpen ? "Close navigation" : "Open navigation"}
                     onClick={() => setMenuOpen((open) => !open)}
                 >
-                    <span>Menu</span>
+                    {/* <span>Menu</span> */}
                     {/* Replace this CSS icon with your image when ready. */}
                     <span className="navbar__toggle-icon" aria-hidden="true">
                         <span /><span /><span />
